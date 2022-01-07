@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# AJ TOTO
+.prettierrc
+learn.js
+*.scss
+src/AppStyles/App.css.map
