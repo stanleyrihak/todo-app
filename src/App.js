@@ -13,10 +13,10 @@ function App() {
         <img src={backgroundImage} alt='' />
       </div> */}
       <div className='app__wrapper'>
-        <Main></Main>
+        {/* <Main></Main> */}
         <LearningFetch></LearningFetch>
-        <div className='spacer'></div>
       </div>
+      <div className='spacer'></div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 const LearningFetch = () => {
-  const data = [
+  const dictData = [
     {
       name: 'Markus',
       age: '15',
@@ -20,8 +20,12 @@ const LearningFetch = () => {
 
   return (
     <>
-      {data.map((e) => {
-        ;<p style={{ color: 'red' }}>dačooo</p>
+      {dictData.map((e) => {
+        return (
+          <p style={{ color: 'white' }}>
+            {e.name} is {e.age} years old.
+          </p>
+        )
       })}
     </>
   )
