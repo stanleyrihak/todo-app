@@ -13,7 +13,7 @@ const Main = () => {
   const [todos, setTodos] = useState([])
   const todosCollection = collection(db, 'todos')
 
-  //  !mení state riadku
+  // ! mení state riadku
   const changeState = (id) => {
     // console.log(id)
     const todo = todos.find((el) => el.id === id)
@@ -57,26 +57,20 @@ const Main = () => {
   }
 
   return (
-    <div className="app__wrapper-flex">
-      <span className="heading">To do list</span>
-      <div className="todo">
-        <div className="todo__type-in">
+    <div className='app__wrapper-flex'>
+      <span className='heading'>To do list</span>
+      <div className='todo'>
+        <div className='todo__type-in'>
           <CreateTodoRow handleSubmit={handleSubmit}></CreateTodoRow>
         </div>
         {todos.length > 0 ? (
-          <div className="todo__checkboxes">
+          <div className='todo__checkboxes'>
             {todos
               .filter((todo) => {
                 return todo.state === 'ongoing'
               })
               .map((todo) => (
-                <TodoRow
-                  key={todo.id}
-                  state={todo.state}
-                  changeState={changeState}
-                  deleteTodo={deleteTodo}
-                  id={todo.id}
-                >
+                <TodoRow key={todo.id} state={todo.state} changeState={changeState} deleteTodo={deleteTodo} id={todo.id}>
                   {todo.title}
                 </TodoRow>
               ))}
@@ -85,13 +79,7 @@ const Main = () => {
                 return todo.state === 'completed'
               })
               .map((todo) => (
-                <TodoRow
-                  key={todo.id}
-                  state={todo.state}
-                  changeState={changeState}
-                  deleteTodo={deleteTodo}
-                  id={todo.id}
-                >
+                <TodoRow key={todo.id} state={todo.state} changeState={changeState} deleteTodo={deleteTodo} id={todo.id}>
                   {todo.title}
                 </TodoRow>
               ))}
