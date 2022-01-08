@@ -1,4 +1,7 @@
+import React, { useState, useEffect } from 'react'
+
 const LearningFetch = () => {
+  const [data, setData] = useState(null)
   const dictData = [
     {
       name: 'Markus',
@@ -17,16 +20,24 @@ const LearningFetch = () => {
       age: '23',
     },
   ]
+  const fetchFunc = async () => {
+    const dictDataFromAPI = await fetch('http://myjson.dit.upm.es/api/bins/g6l3').then((response) => response.json())
+    setData(dictDataFromAPI)
+  }
+  useEffect(() => {
+    fetchFunc()
+  }, [])
 
   return (
     <>
-      {dictData.map((e) => {
-        return (
-          <p style={{ color: 'white' }}>
-            {e.name} is {e.age} years old.
-          </p>
-        )
-      })}
+      {data &&
+        data.map((e) => {
+          return (
+            <p key={e.name} style={{ color: 'white' }}>
+              {e.name} is {e.age} years old.
+            </p>
+          )
+        })}
     </>
   )
 }
