@@ -13,9 +13,9 @@ const Main = () => {
   const [todos, setTodos] = useState([])
   const todosCollection = collection(db, 'todos')
 
-  //  !mení state riadku
+  // ! mení state riadku
   const changeState = (id) => {
-    // console.log(id)
+    console.log(id)
     const todo = todos.find((el) => el.id === id)
     const todoDoc = doc(db, 'todos', id)
     let newState
@@ -29,8 +29,6 @@ const Main = () => {
   }
   //  !mení state riadku
   const deleteTodo = (id) => {
-    // console.log(id)
-    const todo = todos.find((el) => el.id === id)
     const todoDoc = doc(db, 'todos', id)
     deleteDoc(todoDoc)
     setTodos([...todos.filter((el) => el.id !== id)])
@@ -57,14 +55,14 @@ const Main = () => {
   }
 
   return (
-    <div className="app__wrapper-flex">
-      <span className="heading">To do list</span>
-      <div className="todo">
-        <div className="todo__type-in">
+    <div className='app__wrapper-flex'>
+      <span className='heading'>To do list</span>
+      <div className='todo'>
+        <div className='todo__type-in'>
           <CreateTodoRow handleSubmit={handleSubmit}></CreateTodoRow>
         </div>
         {todos.length > 0 ? (
-          <div className="todo__checkboxes">
+          <div className='todo__checkboxes'>
             {todos
               .filter((todo) => {
                 return todo.state === 'ongoing'
@@ -75,8 +73,7 @@ const Main = () => {
                   state={todo.state}
                   changeState={changeState}
                   deleteTodo={deleteTodo}
-                  id={todo.id}
-                >
+                  id={todo.id}>
                   {todo.title}
                 </TodoRow>
               ))}
@@ -90,8 +87,7 @@ const Main = () => {
                   state={todo.state}
                   changeState={changeState}
                   deleteTodo={deleteTodo}
-                  id={todo.id}
-                >
+                  id={todo.id}>
                   {todo.title}
                 </TodoRow>
               ))}

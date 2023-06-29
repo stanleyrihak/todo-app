@@ -1,20 +1,20 @@
 import React from 'react'
 import './AppStyles/App.css'
-import backgroundImage from './AppImages/bg-desktop-dark.jpg'
+import backgroundImage from './AppImages/bg.png'
 
 import Main from './components/Main/Main'
 
 function App() {
   return (
-    <div className="app">
-      <div className="spacer"></div>
-      <div className="app__bg-img">
-        <img src={backgroundImage} alt="" />
+    <div className='app'>
+      <div className='spacer'></div>
+      <div className='app__bg-img'>
+        <img src={backgroundImage} alt='' />
       </div>
-      <div className="app__wrapper">
+      <div className='app__wrapper'>
         <Main></Main>
       </div>
-      <div className="spacer"></div>
+      <div className='spacer'></div>
     </div>
   )
 }

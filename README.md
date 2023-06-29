@@ -1,3 +1,3 @@
-# TO DO project with REACT
+# todo-app robená pomocou Reactu
 
-I hope you like it.
+Táto stránka bola mojou prvou skúsenosťou s Reactom. Je to veľmi zjednodušená verzia dnešných todo-apiek
