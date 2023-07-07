@@ -5,13 +5,17 @@ import { db } from '../../firebase'
 import { getDocs, updateDoc, addDoc, doc, deleteDoc, collection } from 'firebase/firestore'
 
 const Main = () => {
+  const [todos, setTodos] = useState([])
+  const todosCollection = collection(db, 'todos')
+
   const getTodos = async () => {
     const data = await getDocs(todosCollection)
     setTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
   }
-  // ! todo row list
-  const [todos, setTodos] = useState([])
-  const todosCollection = collection(db, 'todos')
+
+  useEffect(() => {
+    getTodos()
+  }, [])
 
   // ! mení state riadku
   const changeState = (id) => {
@@ -33,10 +37,7 @@ const Main = () => {
     deleteDoc(todoDoc)
     setTodos([...todos.filter((el) => el.id !== id)])
   }
-  // imp! nejde to
-  useEffect(() => {
-    getTodos()
-  }, [])
+
   const handleSubmit = async (e, value) => {
     e.preventDefault()
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import './AppStyles/App.css'
-import backgroundImage from './AppImages/bg.png'
+import backgroundImage from './AppImages/bg.jpeg'
 
 import Main from './components/Main/Main'
 
